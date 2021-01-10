@@ -1,3 +1,14 @@
+// START personal config
+#define _Z_HEIGHT 199.8
+
+//#define DELTA_SMOOTH_ROD_OFFSET 160.0 // mm
+//#define DELTA_EFFECTOR_OFFSET 34.0 // mm
+//#define DELTA_CARRIAGE_OFFSET 25.0 // mm
+//101 - _DELTA_RADIUS_CUSTOM
+// 8.5
+#define _DELTA_RADIUS_CUSTOM 1.4
+// END personal config
+
 #ifndef CONFIGURATION_H
 #define CONFIGURATION_H
 
@@ -96,7 +107,7 @@ Here are some standard links for getting your machine calibrated:
 // NOTE NB all values for DELTA_* values MUST be floating point, so always have a decimal point in them
 
 // Center-to-center distance of the holes in the diagonal push rods.
-#define DELTA_DIAGONAL_ROD 196 // mm
+#define DELTA_DIAGONAL_ROD 198 // mm
 
 // Horizontal offset from middle of printer to smooth rod center.
 #define DELTA_SMOOTH_ROD_OFFSET 160 // mm
@@ -108,7 +119,7 @@ Here are some standard links for getting your machine calibrated:
 #define DELTA_CARRIAGE_OFFSET 33 // mm
 
 // Horizontal distance bridged by diagonal push rods when effector is centered.
-#define DELTA_RADIUS (DELTA_SMOOTH_ROD_OFFSET-DELTA_EFFECTOR_OFFSET-DELTA_CARRIAGE_OFFSET+1)
+#define DELTA_RADIUS (DELTA_SMOOTH_ROD_OFFSET-DELTA_EFFECTOR_OFFSET-DELTA_CARRIAGE_OFFSET+ _DELTA_RADIUS_CUSTOM )
 
 // Print surface diameter/2 minus unreachable space (avoid collisions with vertical towers).
 #define DELTA_PRINTABLE_RADIUS 90
@@ -441,7 +452,7 @@ const bool Z_PROBE_ENDSTOP_INVERTING = false; // set to true to invert the logic
 
   #ifdef AUTO_BED_LEVELING_GRID
 
-    #define DELTA_PROBABLE_RADIUS (DELTA_PRINTABLE_RADIUS - 40)
+    #define DELTA_PROBABLE_RADIUS (DELTA_PRINTABLE_RADIUS - 30)
 
     #define LEFT_PROBE_BED_POSITION -DELTA_PROBABLE_RADIUS
     #define RIGHT_PROBE_BED_POSITION DELTA_PROBABLE_RADIUS
@@ -471,9 +482,9 @@ const bool Z_PROBE_ENDSTOP_INVERTING = false; // set to true to invert the logic
 
   // Offsets to the probe relative to the extruder tip (Hotend - Probe)
   // X and Y offsets must be integers
-  #define X_PROBE_OFFSET_FROM_EXTRUDER -19  // Probe on: -left  +right
-  #define Y_PROBE_OFFSET_FROM_EXTRUDER -11  // Probe on: -front +behind
-  #define Z_PROBE_OFFSET_FROM_EXTRUDER -2.0  // -below (always!)
+  #define X_PROBE_OFFSET_FROM_EXTRUDER 22  // Probe on: -left  +right
+  #define Y_PROBE_OFFSET_FROM_EXTRUDER -10  // Probe on: -front +behind
+  #define Z_PROBE_OFFSET_FROM_EXTRUDER -0.5  // -below (always!)
 
   #define Z_RAISE_BEFORE_HOMING 15      // (in mm) Raise Z before homing (G28) for Probe Clearance.
                                         // Be sure you have this distance over your Z_MAX_POS in case
@@ -558,7 +569,7 @@ const bool Z_PROBE_ENDSTOP_INVERTING = false; // set to true to invert the logic
 #ifdef MANUAL_HOME_POSITIONS
   #define MANUAL_X_HOME_POS 0
   #define MANUAL_Y_HOME_POS 0
-  #define MANUAL_Z_HOME_POS 200 // For delta: Distance between nozzle and print surface after homing.
+  #define MANUAL_Z_HOME_POS _Z_HEIGHT // For delta: Distance between nozzle and print surface after homing.
 #endif
 
 /**
@@ -571,7 +582,7 @@ const bool Z_PROBE_ENDSTOP_INVERTING = false; // set to true to invert the logic
 
 // default settings
 // delta speeds must be the same on xyz
-#define DEFAULT_AXIS_STEPS_PER_UNIT   {80,80, 80, 93}  // default steps per unit for Kossel (GT2, 20 tooth)
+#define DEFAULT_AXIS_STEPS_PER_UNIT   {160, 160, 160, 230}  // default steps per unit for Kossel (GT2, 20 tooth)
 #define DEFAULT_MAX_FEEDRATE          {400, 400, 400, 45}    // (mm/sec)
 #define DEFAULT_MAX_ACCELERATION      {5000,5000,5000,5000}    // X, Y, Z, E maximum start speed for accelerated moves. E default values are good for skeinforge 40+, for older versions raise them a lot.
 
