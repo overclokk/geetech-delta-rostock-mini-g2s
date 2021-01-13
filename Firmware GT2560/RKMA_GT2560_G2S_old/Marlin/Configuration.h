@@ -1,12 +1,12 @@
 // START personal config
-#define _Z_HEIGHT 200
+#define _Z_HEIGHT 197.7
 
 //#define DELTA_SMOOTH_ROD_OFFSET 160.0 // mm
 //#define DELTA_EFFECTOR_OFFSET 34.0 // mm
 //#define DELTA_CARRIAGE_OFFSET 25.0 // mm
 //101 - _DELTA_RADIUS_CUSTOM
 // 8.5
-#define _DELTA_RADIUS_CUSTOM 0
+#define _DELTA_RADIUS_CUSTOM 8.4
 // END personal config
 
 #ifndef CONFIGURATION_H
@@ -510,7 +510,7 @@ const bool Z_MAX_ENDSTOP_INVERTING = false; // set to true to invert the logic o
 // M501 - reads parameters from EEPROM (if you need reset them after you changed them temporarily).
 // M502 - reverts to the default "factory settings".  You still need to store them in EEPROM afterwards if you want to.
 //define this to enable EEPROM support
-//#define EEPROM_SETTINGS
+#define EEPROM_SETTINGS
 //to disable EEPROM Serial responses and decrease program space by ~1700 byte: comment this out:
 // please keep turned on if you can.
 //#define EEPROM_CHITCHAT
