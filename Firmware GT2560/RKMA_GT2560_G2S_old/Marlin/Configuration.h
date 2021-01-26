@@ -1,12 +1,12 @@
 // START personal config
-#define _Z_HEIGHT 197.7
+#define _Z_HEIGHT 197.8
 
 //#define DELTA_SMOOTH_ROD_OFFSET 160.0 // mm
 //#define DELTA_EFFECTOR_OFFSET 34.0 // mm
 //#define DELTA_CARRIAGE_OFFSET 25.0 // mm
 //101 - _DELTA_RADIUS_CUSTOM
 // 8.5
-#define _DELTA_RADIUS_CUSTOM 8.4
+#define _DELTA_RADIUS_CUSTOM 8.7
 // END personal config
 
 #ifndef CONFIGURATION_H
